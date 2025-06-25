@@ -1,0 +1,34 @@
+<h2>Temperature Converter</h2>
+
+<form (ngSubmit)="convertTemperature()" #tempForm="ngForm">
+  <div>
+  <label for="celsius">Celsius:</label>
+  <input
+    type="number"
+    id="celsius"
+    name="celsius"
+    [(ngModel)]="celsius"
+    (input)="onCelsiusInput()" />
+  <span>°C</span>
+</div>
+
+<div>
+  <label for="fahrenheit">Fahrenheit:</label>
+  <input
+    type="number"
+    id="fahrenheit"
+    name="fahrenheit"
+    [(ngModel)]="fahrenheit"
+    (input)="onFahrenheitInput()" />
+  <span>°F</span>
+</div>
+
+
+  <div *ngIf="showError" style="color: red;">
+    Please enter at least one temperature value.
+  </div>
+
+  <button type="submit">Convert</button>
+  <button type="button" (click)="resetForm()">Reset</button>
+
+</form>
